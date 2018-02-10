@@ -1,0 +1,411 @@
+		*{  margin: 0px;
+			padding: 0px;
+			font-family: Arial;
+		    -moz-user-select: none;
+		    -o-user-select:none;
+		    -khtml-user-select: none;
+		    -webkit-user-select: none;
+		    -ms-user-select: none;
+		     user-select: none;
+		}
+		p{
+			padding-left: 3%;
+			padding-right: 3%;
+		}
+		.clearfix {
+		    height: 0px;
+		    clear: both;
+		    background: #e74c3c;
+		}
+		.wrapper{
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			background-image: url('background.png');
+			background-size: contain;
+			display: none;	
+			z-index: 1;
+		}
+		.thumbler__off{
+			width: 3%;
+			height: 9%;
+			background-image: url('thumbler.png');
+			background-size: contain;
+			background-repeat: no-repeat;	
+			display: inline-block;
+		}
+		.thumbler__on{
+			width: 3%;
+			height: 9%;
+			background-image: url('thumbler__off.png');
+			background-size: contain;
+			background-repeat: no-repeat;
+			display: inline-block;
+			
+		}
+		.indicator_1{
+			padding: 7.2% 12.4%;
+		}
+		.indicator_2{
+			padding: 2.5% 5.7%;
+		}
+		.indicators{
+			width: 80%;
+			height: 6%;
+			margin: 0 auto;	
+			margin-top: 3%;
+			display: flex;
+			flex-direction: row;
+
+		}
+		.indicators__group2{
+			background-color: rgb(230,230,230);
+			width: 55%;
+			height: 100%;
+			margin-left: 18%;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-around;
+			align-items: center;
+			border: solid black;
+		}
+		.indicators__group1{
+			background-color: rgb(230,230,230);
+			width: 20%;
+			height: 100%;
+			margin-left: 10%;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-around;
+			align-items: center;
+			border: solid black;
+		}
+
+		.switch{
+			width: 6.5%;
+			height: 11%;
+			background-image: url('switch.png');
+			background-size: contain;
+			background-repeat: no-repeat;
+		}	
+		#switch2{
+			margin-top: 9.2%;
+			margin-right: 17%;
+			float: right;
+			-moz-transform: rotate(-60deg); 
+		    -ms-transform: rotate(-60deg); 
+		    -webkit-transform: rotate(-60deg); 
+		    -o-transform: rotate(-60deg); 
+		    transform: rotate(-60deg);	
+		}
+		#switch1{
+			margin-top: 9.2%;
+			margin-right: 23.4%;
+			float: right;
+		}
+		#th1{
+			margin-left: 7.5%;
+			margin-top: 9%;
+		}
+		#th2{
+			margin-left: 7%;
+			margin-top: 9%;
+		}
+		#th3{
+			margin-left: 0.5%;
+			margin-top: 9%; 
+		}
+		#th4{
+			float: right;
+			margin-right: 8.3%;
+			margin-top: 9%; 
+		}
+		.arrow{
+			position: absolute;
+			width: 0.15%;
+			height: 8%;
+			background-color: red;
+			margin-left: 54.75%;
+			margin-top: -5.74%;
+			transform-origin: 0% 100%;
+		  	-moz-transform: rotate(-45deg); 
+		    -ms-transform: rotate(-45deg); 
+		    -webkit-transform: rotate(-45deg); 
+		    -o-transform: rotate(-45deg); 
+		    transform: rotate(-45deg);	
+		}
+		.fix{
+			position: absolute;
+			width: 9.5%;
+			height: 5%;
+			background-color: black;
+			margin-left: 50%;
+			margin-top: -1.59%;
+		}
+		#th5{
+			margin-left: 7.5%;
+			margin-top: 11.5%;
+		}
+		#th6{
+			margin-left: 2.5%;
+		}
+		#th7{
+			margin-left: 8%;
+		}
+		#th8{
+			margin-left: 13%;
+		}
+		#th9{
+			margin-left: 5.5%;
+		}
+		#th10{
+			margin-left: 5.9%;
+		}
+		#th11{
+			margin-left: 5.25%;
+		}
+		#th12{
+			margin-left: 2.5%;
+		}
+		#th13{
+			margin-left: 3%;
+		}
+		#th14{
+			margin-left: 3.5%;
+		}
+		.watch{
+			display: flex;
+			background-image: url('watch.png');
+			background-position: center;
+			background-size: contain;
+			background-repeat: no-repeat;	
+			height: 10%;
+			width: 5.86%;
+			float: right;
+			margin-right: 1.5%;
+			margin-top: 7%;
+			position: relative;
+			border-radius: 100%;
+			box-shadow: 0 0 10px rgba(0,0,0,10);
+		}
+		.hourArrow{
+			margin-left: 48.5%;
+			margin-top: 15%;
+			height: 35%;
+			width: 4%;
+			background-color: red;
+			z-index: 20;
+			opacity: 0.99;
+			transform-origin: 0% 100%;
+
+		}
+		.minArrow{
+			margin-left: -3%;
+			margin-top: 10%;
+			height: 40%;
+			width: 2%;
+			background-color: blue;
+			z-index: 15;
+			opacity: 0.99;
+			transform-origin: 0% 100%;
+		}
+		.secArrow{
+			margin-left: -1.5%;
+			height: 50%;
+			width: 1%;
+			background-color: green;
+			z-index: 5;
+			opacity: 0.99;
+			transform-origin: 0% 100%;
+		}
+		.dot{
+			margin-left: -3%;
+			margin-top: 47.5%;
+			height: 5%;
+			width: 5%;
+			border-radius: 100%;
+			background-color: black;
+			z-index: 300;
+			opacity: 0.99;
+			transform-origin: 0% 100%;
+		}
+		.wrapper_2{
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			background-image: url('background_2.png');
+			background-size: contain;
+			display: block;
+			z-index: 100;
+		}
+
+		.thumbler__off_2{
+			width: 2.4%;
+			height: 7.2%;	
+			background-image: url('thumbler.png');
+			background-size: contain;
+			background-repeat: no-repeat;	
+			display: inline-block;
+		}
+		.thumbler__on_2{
+			width: 2.4%;
+			height: 7.2%;
+			background-image: url('thumbler__off.png');
+			background-size: contain;
+			background-repeat: no-repeat;
+			display: inline-block;
+			
+		}
+		.thumbler__off_special{
+			width: 4.3%;
+			height:8%;	
+			background-image: url('thum_3.png');
+			background-size: contain;
+			background-repeat: no-repeat;	
+			display: inline-block;
+		}
+		#th15{
+			margin-top: 1.8%;
+			margin-left: 5.6%;
+		}
+		#th16{
+			margin-top: 2.60%;
+			margin-left: 4.6%;
+		}
+		.switch_2{
+			width: 6.5%;
+			height: 11%;
+			background-image: url('switch_2.png');
+			background-size: contain;
+			background-repeat: no-repeat;
+		}	
+		#switch3{
+			margin-top: 2.6%;
+			margin-left: 4.5%;
+			-moz-transform: rotate(30deg); 
+		    -ms-transform: rotate(30deg); 
+		    -webkit-transform: rotate(30deg); 
+		    -o-transform: rotate(30deg); 
+		    transform: rotate(30deg);	
+		   transform-origin: 61.075949% 50.632911%;
+		}
+		#switch4{
+			float: right;
+			margin-top: -8%;
+			margin-right: 4.75%;
+			-moz-transform: rotate(30deg); 
+		    -ms-transform: rotate(30deg); 
+		    -webkit-transform: rotate(30deg); 
+		    -o-transform: rotate(30deg); 
+		    transform: rotate(30deg);	
+		   transform-origin: 61.075949% 50.632911%;
+
+		}
+		#switch5{
+			float: right;
+			margin-top: 0.7%;
+			margin-right: 5%;	
+			-moz-transform: rotate(-30deg); 
+		    -ms-transform: rotate(-30deg); 
+		    -webkit-transform: rotate(-30deg); 
+		    -o-transform: rotate(-30deg); 
+		    transform: rotate(-30deg);
+		   transform-origin: 61.075949% 50.632911%;
+		}
+		table{
+			width: 30%;
+			height: 20%;
+		}
+		 td {
+		    background: maroon;
+			text-align: center;
+		 	width: 16.6%;
+		 	opacity: 0.5;
+		   }
+		.light_indicators_1{
+			margin-top: -22.5%;
+			margin-left: 15%;
+		}
+		.light_indicators_2{
+			margin-top: -11.7%;
+			margin-left: 53%;
+		}
+		.light_indicators__green{
+			background: green;
+		}
+		.light_indicators__yellow{
+			background: yellow;
+		}
+		.light_indicators__red{
+			background: red;
+		}
+		.active_light_indicator{
+			opacity: 1;
+		}
+		.unknown{
+			background: white;
+		}
+		#th17 {
+			margin-top: 3.8%;
+			float: right;
+			margin-right: 4.6%;
+		}
+
+		#th18{
+			margin-top: 3.8%;
+			float: right;
+			margin-right: 3.3%;
+		}
+		#th19{
+			margin-top: 3.8%;
+			float: right;
+			margin-right: 3.3%;
+		}
+		#th20 {
+			margin-top: 3.8%;
+			float: right;
+			margin-right: 3.3%;
+		}
+
+		#th21{
+			margin-top: 3.8%;
+			float: right;
+			margin-right: 3.3%;
+		}
+		.board:hover{
+			width: 22%;
+			height: 100%;
+			background-color: grey;
+			transition: transform 0.5s linear;
+			transform:rotateX(70deg);
+			display: none;
+		}
+		.board{
+			width: 22%;
+			height: 100%;
+			background-color: grey;
+			transition: transform 0.5s linear;
+			transform:rotateX(0deg);
+			transform-origin: top;
+			display: none;
+		}
+		.persp{
+			width: 100%;
+			height: 14%;
+			perspective: 500px;
+			transform-style: preserve-3d;
+		}
+		@media screen and (max-device-width: 1600px) { 
+			*{font-size: 18px;
+			  overflow: hidden;}
+		}
+
+		@media screen and (max-device-width: 1280px) {
+			*{font-size: 16px;
+			  overflow: hidden;}
+		}
+
+		 @media screen and (max-width: 1024px) { 
+			*{font-size: 14px;
+			  overflow: hidden;}
+		}
