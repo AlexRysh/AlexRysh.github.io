@@ -97,3 +97,6 @@ outline: none;
 .choise:after{
 	content: "=";
 }
+p{
+    text-align: center;
+}
