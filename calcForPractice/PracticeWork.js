@@ -15,7 +15,6 @@ function Calc(sSelector) {
     b.jqMi = b.model.find('#M_i');
     b.jqS = b.model.find('#S');
     b.changeText = function(){
-    	console.log(b.model.find(".chooseWhatToInput :selected").val())
   		    if (b.model.find(".chooseWhatToInput :selected").val() == 2) {
   		    	b.model.find(".changingText").text('Абсолютное начальное давление горючей смеси в аппарате, при котором происходит инициирование горения. Па');
   		    }else{
@@ -37,7 +36,6 @@ function Calc(sSelector) {
         b.TValue = b.jqT.val();
         b.MiValue = b.jqMi.val();
     	b.SValue = b.jqS.val();
-    	console.log(b);
     	if (b.model.find(".chooseWhatToInput :selected").val() == 2){
     		b.Pi_m = b.PmValue/b.ForPiValue;	
         	b.Pi_e = b.PeValue/b.ForPiValue;
