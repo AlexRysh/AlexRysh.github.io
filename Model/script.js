@@ -1,3 +1,26 @@
+$(document).ready(function() {
+    var ctrl = false;
+    $(document).keydown(function(e){    
+        if(ctrl && (e.keyCode == 107 || e.keyCode == 109)) {
+            return false;
+        }
+        if(e.keyCode == 17) {
+            ctrl = true;
+            $(document).bind('scroll', function() {
+                if(ctrl) {
+                    return false;
+                }                               
+            });
+        }
+    })
+
+    $(document).keyup(function(e) {
+        if(e.keyCode == 17) {
+            ctrl = false;
+            $(document).unbind('scroll');
+        }                  
+    });                    
+});
 $(window).keypress(function(e){
     if(e.which == 50) {
           $('.wrapper_2').css({'display': 'block'});
@@ -10,9 +33,8 @@ adaptWindow = function(container){
 		if(sessionStorage.getItem('firstLoadWidth')===null){
 			sessionStorage.setItem('firstLoadWidth', window.innerWidth);
 			sessionStorage.setItem('firstLoadHeight	', window.innerHeight);
-			console.log(sessionStorage.getItem('firstLoadWidth'));
 		}
-	function windowChangeSize(){
+		windowChangeSize = function(){
 		var client_w=document.body.clientWidth,
 			client_h=document.body.clientHeight;
 		if(sessionStorage.getItem('firstLoadWidth')==window.innerWidth||Math.round(window.innerWidth*100/sessionStorage.getItem('firstLoadWidth'))!=Math.round  (window.innerHeight*100/sessionStorage.getItem('firstLoadHeight'))){
@@ -248,7 +270,7 @@ function block_2(sSelector){
 		}
 		else if(event.which === 3){
 			if (b.specialThumblerValue == 3 || 1 || 4){
-				b.specialThumblerValue = 2;
+				b.specialThumblerValue = 2;	
 				b.specialThumbler.css('backgroundImage', 'url(\'thum_2.png\')');
 			}else{b.specialThumblerValue = 3
 				b.specialThumbler.css('backgroundImage', 'url(\'thum_3.png\')');
