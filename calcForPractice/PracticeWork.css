@@ -39,10 +39,6 @@ legend {
     width: 100%;
 }
 
-.description {
-    text-align: center;
-}
-
 select:focus {
 outline: none;
 }
@@ -96,6 +92,11 @@ outline: none;
 .choise:after{
 	content: "=";
 }
+
+h3{
+    text-align: center;
+}
+
 p{
     margin-top: 5px;
     text-align: center;
