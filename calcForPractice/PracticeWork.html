@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Calculator
+    </title>
+    <meta charset="utf-8">
+    <script src="PracticeWork.js" type="text/javascript"></script>
+    <script src="jquery-3.2.1.min.js"></script>
+    <link rel="icon" href="images/calc-logo.png" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="PracticeWork.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="header"></div>
+        <div class="content">
+            <form class="calcForm">
+                <fieldset>
+                    <legend>Калькулятор для расчета безопасной площади разгерметизации технического оборудования с газопаровыми смесями</legend>
+                    <h3 class="description">Введите исходные данные для счета:</h3>
+                    <p class="description">Абсолютное максимально допустимое давление внутри сосуда, которое не приводит к его деформации и/или разрушению. Па</p>
+                    <p><label for="P_m">p<sub>m</sub>= </label><input type="number" min='1' max='5000' step="1" id="P_m" class="field" placeholder="" required autofocus></p>
+                    <p class="description">Абсолютное давление в пространстве, в которое происходит истечение, в момент достижения максимального давления взрыва внутри аппарата<br>(атмосфера, буферная емкость и т.п.). Па</p>
+                    <p><label for="P_apst">p' = </label><input type="number" min='1' max='5000' step="1" id="P_apst" class="field" placeholder="" required></p>
+                    <p class="description">Абсолютное максимальное давление взрыва данной горючей смеси в замкнутом сосуде при начальном давлении смеси p<sub>i</sub>. Па</p>
+                    <p><label for="P_e">p<sub>e</sub>= </label><input type="number" min='1' max='5000' step="1" id="P_e" class="field" placeholder="" required></p>
+                    <p class="description">Коэффициент расширения продуктов сгорания смеси.</p>
+                    <p><label for="E_i">E<sub>i</sub>= </label><input type="number" min='1' max='5000' step="1" id="E_i" class="field" placeholder="" required></p>
+                    <p class="description">Фактор турбулентности, представляющий собой в соответствии с принципом Гуи-Михельсона действительной поверхности фронта пламени в аппарате к поверхности сферы, в которую можно собрать продукты сгорания, находящиеся в данный момент времени внутри сосуда.</p>
+                    <p><label for="Ksi">χ = </label><input type="number" min='1' max='5000' step="1" id="Ksi" class="field" placeholder="" required></p>
+                    <p class="description">Коэффициет расхода при истечении свежей смеси и (или) продуктов сгорания через устройство взрыворазрежения (предохранительная мембрана, клапан, разгерметизатор и т.п.)</p>
+                    <p><label for="M">µ = </label><input type="number" min='1' max='5000' step="1" id="M" class="field" placeholder="" required></p>
+                    <p class="description changingText"></p>
+                    <p><label for="F" class = "choise">
+                    	<select class="chooseWhatToInput">
+                    		<option value="1" selected>F</option>
+                    		<option value="2">p<sub>i</sub></option>
+                    	</select>
+                     </label>
+                     <input type="number" min='1' max='5000' step="1" id="F" class="field" placeholder="" required></p>
+                    <p class="description">Максимальный внутренний обьем сосуда, в котором возможно образование горючей газопаровой смеси. м<sup>3</sup></p>
+                    <p><label for="V">V = </label><input type="number" min='1' max='5000' step="1" id="V" class="field" placeholder="" required></p>
+                    <p class="description">Температура горючей смеси. K</p>
+                    <p><label for="T">T<sub>u<sub>i</sub></sub> = </label><input type="number" min='1' max='5000' step="1" id="T" class="field" placeholder="" required></p>
+                    <p class="description">Молекулярная масса горючей смеси, кг/кмоль</p>
+                    <p><label for="M_i">M<sub>i</sub> = </label><input type="number" min='1' max='5000' step="1" id="M_i" class="field" placeholder="" required></p>
+                    <p class="description">Нормальная скорость распространения пламени при начальних значениях давления и температуры горючей смеси, м/c</p>
+                    <p><label for="S">S<sub>u<sub>i</sub></sub> = </label><input type="number" min='1' max='5000' step="1" id="S" class="field" placeholder="" required></p>
+                    <p><input class='submit-btn' type="submit" value="Результат"></p>
+                </fieldset>
+            </form>
+        </div>
+        <div class="footer"></div>
+    </div>
+    <script type="text/javascript">
+        b1 = new Calc('.wrapper');
+    </script>
+</body>
+
+</html>
