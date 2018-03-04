@@ -19,6 +19,12 @@ fieldset {
     align-items: center;
     padding-bottom: 10px;
     width: 100%;
+    text-align: center;
+}
+
+#E_i:disabled, #Pi_E:disabled, #M_i:disabled, #M:disabled{
+    opacity: 1;
+    color: black;
 }
 
 form {
@@ -37,6 +43,10 @@ legend {
     font-size: 150%;
     text-align: center;
     width: 100%;
+}
+
+.description {
+    text-align: center;
 }
 
 select:focus {
@@ -91,13 +101,4 @@ outline: none;
 
 .choise:after{
 	content: "=";
-}
-
-h3{
-    text-align: center;
-}
-
-p{
-    margin-top: 5px;
-    text-align: center;
 }
