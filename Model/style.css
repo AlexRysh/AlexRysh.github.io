@@ -364,14 +364,14 @@
 			transform:rotateX(0deg);
 			transform-origin: top;
 			border-radius: 3% 3% 10% 10%;
-			box-shadow: 0 3px 10px rgba(0,0,0,10);
+			box-shadow: -1px 3px 10px rgba(0,0,0,10);
 	}
 		.persp:hover .board{
 			transform:rotateX(110deg);
 			border-radius: 3% 3% 10% 10%;
 			}
 		.persp{
-			box-shadow: inset 0 0 10px rgba(0,0,0,10);
+			box-shadow: inset -1px 1px 20px rgba(0,0,0,10);
 			background-color: gray;
 			border-radius: 3% 3% 10% 10%;
 			overflow: visible;
@@ -391,7 +391,7 @@
 			width: 10%;
 			height: 10%;
 			margin: 0 auto;
-			background: grey;
+			background: linear-gradient(45deg, rgb(30,30,30), gray);
 			margin-top: 32%;
 		}
 		.hidden_thumbler{
@@ -448,14 +448,14 @@
 		}
 		.small_btn{
 			float:left;
-			box-shadow: 0 0 10px rgba(0,0,0,10);
 			width: 2%;
 			height: 3%;
 			border-radius: 50%;
 			background: black;
 			margin-top: 5%;
-			margin-left: 38%;
-			border: solid white;
+			margin-left: 38.3%;
+			background: radial-gradient(50%	 50%, rgb(150,0,0) 15%, rgb(130, 0, 0) 20%, rgb(65, 0, 0) 50%, white, rgb(20,20,20));
+			box-shadow: 1px 1px 5px black; 
 		}
 		.power_thumblers{
 			position: absolute;
@@ -488,33 +488,311 @@
 			box-shadow: 0 1px 4px rgba(0,0,0,10);
 			position: absolute;			
 		}
+		.rot{
+			background-color: rgb(205,206,200);
+			background-position: center;
+			border-radius: 50%;
+			width: 4%;
+			height: 5.8%;
+			background-image: url('rot.png');
+			background-size: contain;
+			background-repeat: no-repeat;	
+			display: inline-block;
+		}
+		.k-button{
+			margin-left: 20%;
+			margin-top: -1.4%;
+			border-radius: 50%;
+			width: 3.7%;
+			height: 6%;
+			background-color: black;
+			text-shadow: 1px 1px 0px rgba(255,255,255,0.15);
+ 			box-shadow: inset 1px 1px 2px rgba(255,255,255,0.3), 
+              inset 3px 15px 45px rgba(0,0,0,0.2),
+              inset -1px -1px 2px rgba(0,0,0,0.5), 
+              inset -3px -15px 45px rgba(255,255,255,0.1),
+              1px 5px 10px -4px rgba(0,0,0,1);
+		}
+		.k-button_clicked{
+			background-color: black;
+			box-shadow: inset 2px 4px 2px rgba(255,255,255,0.3), 
+              inset 3px 15px 45px rgba(0,0,0,0.2),
+              inset -1px -1px 2px rgba(0,0,0,0.5), 
+              inset -3px -15px 45px rgba(255,255,255,0.1),
+              1px 5px 10px -4px rgba(0,0,0,1);
+		}
+		#rot_1{
+			margin-left: 35%;
+			margin-top: 4%;
+		}
+		#rot_2{
+			float: right;
+			margin-right: 37.5%;
+			margin-top: -3.8%;
+		}
+		#th27{
+			margin-left: 18%;
+			margin-top: 3%; 
+		}
+		#th28{
+			margin-left: 23.65%;
+			margin-top: 1.5%;
+		}
+		.indicator_3{
+			border-radius: 10%;
+			border: 3px solid black;
+			font-weight: bold;
+			color: grey;
+			display: flex;
+			width: 6.5%;
+			height: 5%;
+			background-color: white;
+			float: right;
+			margin-top: -4.45%;
+			margin-right: 20%;
+			opacity: 0.6;
+			flex-direction: column;
+			justify-content: space-around;
+		}
+		.indicator_4{
+			border-radius: 10%;
+			border: 3px solid black;
+			width: 6.5%;
+			height: 5%;
+			font-weight: bold;
+			color: grey;
+			display: flex;
+			background-color: white;
+			float: right;
+			margin-top: -1.6%;
+			margin-right: 20%;
+			opacity: 0.6;
+			flex-direction: column;
+			justify-content: space-around;
+		}
+		.indicator_3>p{
+			text-align: center;
+			font-weight: bold;
+		}
+		.indicator_4>p{
+			text-align: center;
+			font-weight: bold;
+		}
+		.thumbler_hor{
+			width: 5%;
+			height: 7.2%;
+			-moz-transform: rotate(90deg); 
+		    -ms-transform: rotate(90deg); 
+		    -webkit-transform: rotate(90deg); 
+		    -o-transform: rotate(90deg); 
+		    transform: rotate(90deg);	
+			background-image: url('thum_4.png');
+			background-size: contain;
+			background-repeat: no-repeat;	
+			display: inline-block;
+			float: right;
+			margin-right: 49%;
+			margin-top: -10.1%;
+		}
+		.thumbler_hor_off{
+			width: 5%;
+			height: 7.2%;
+			margin-top: -10.135%;
+			-moz-transform: rotate(90deg); 
+		    -ms-transform: rotate(90deg); 
+		    -webkit-transform: rotate(90deg); 
+		    -o-transform: rotate(90deg); 
+		    transform: rotate(90deg);	
+			background-image: url('thum_1.png');
+			background-size: contain;
+			background-repeat: no-repeat;
+			display: inline-block;
+		}
+		.thumbler_hor_2{
+			width: 5%;
+			height: 7.2%;
+			background-image: url('thum_3.png');
+			background-size: contain;
+			background-repeat: no-repeat;	
+			display: inline-block;
+			float: right;
+			margin-right: 20.9%;
+			margin-top: -8.6%;
+		}
+		.thumbler_hor_2_off{
+			width: 5%;
+			height: 7.2%;
+			-moz-transform: rotate(-90deg); 
+		    -ms-transform: rotate(-90deg); 
+		    -webkit-transform: rotate(-90deg); 
+		    -o-transform: rotate(-90deg); 
+		    transform: rotate(-90deg);	
+			background-image: url('thum_4.png');
+			background-size: contain;
+			background-repeat: no-repeat;
+			float: right;
+			display: inline-block;
+			margin-right: 20.9%;
+			margin-top: -8.6%;
+		}
+		#rot_3{
+			position: absolute;
+			margin-top: -4%;
+			margin-left: 33.45%;
+		}
+		#rot_4{
+			position: absolute;
+			margin-top: -4%;
+			margin-left: 46.6%;
+		}
+		#rot_5{
+			position: absolute;
+			margin-top: -4%;
+			margin-left: 59.7%;
+		}
+		.handwheel{
+			transform-origin: 51% 50%;
+			width: 6.5%;
+			height: 10.8%;
+			background-image: url('hwheel.png');
+			background-size: contain;
+			background-repeat: no-repeat;
+			display: block;
+			}
+		#hw1{
+			margin-top: 7.3%;
+			margin-left: 5.5%;	
+		}
+		#hw2{
+			margin-top: -6.38%;
+			float: right;
+			margin-right: 5%;
+		}
+		.board_1{
+			z-index: 500;
+			width: 100%;
+			height: 100%;
+			background: linear-gradient(45deg, grey, white);	
+			transition: background 1s;
+			transition: transform 1s linear;
+			transform:rotateY(0deg);
+			transform-origin: left;
+			border-radius: 3% 3% 10% 10%;
+			box-shadow: -1px 3px 10px rgba(0,0,0,10);
+		}
+		.persp_1:hover .board_1{
+			transform:rotateY(-110deg);
+			border-radius: 3% 3% 10% 10%;
+			}
+		.persp_1{
+			box-shadow: inset -1px 1px 20px rgba(0,0,0,10);
+			background-color: gray;
+			border-radius: 3% 3% 10% 10%;
+			overflow: visible;
+			position: absolute;
+			margin-top: -16%;
+			margin-left: 14.5%;
+			z-index: 400;	
+			width: 8%;
+			height: 25%;
+			perspective: 800px;
+			transform-style: preserve-3d;
+			display: flex; 
+			flex-direction: row;
+		}
+		.board_2{
+			z-index: 500;
+			width: 100%;
+			height: 100%;
+			background: linear-gradient(135deg, white, grey);	
+			transition: background 1s;
+			transition: transform 1s linear;
+			transform:rotateY(0deg);
+			transform-origin: right;
+			border-radius: 3% 3% 10% 10%;
+			box-shadow: -1px 3px 10px rgba(0,0,0,10);
+		}
+		.persp_2:hover .board_2{
+			transform:rotateY(110deg);
+			border-radius: 3% 3% 10% 10%;
+			}
+		.persp_2{
+			box-shadow: inset -1px 1px 20px rgba(0,0,0,10);
+			background-color: gray;
+			border-radius: 3% 3% 10% 10%;
+			overflow: visible;
+			position: absolute;
+			margin-top: -17%;
+			margin-left: 72.5%;
+			z-index: 400;	
+			width: 8%;
+			height: 28%;
+			perspective: 800px;
+			transform-style: preserve-3d;
+			display: flex; 
+			flex-direction: row;
+		}
+		.hidden_button{
+			width: 45%;
+			height: 25%;
+			background-color: black;
+			position: absolute;
+			z-index: 200;
+		}
+		#hb_1{
+			margin-top: 25%;
+			margin-left: 28%;
+		}
+		#hb_2{
+			margin-top: 110%;
+			margin-left: 28%;	
+		}
+		#hb_3{
+			background-color: red;
+			height: 23%;
+			margin-top: 18%;
+			margin-left: 28%;
+		}
+		#hb_4{
+			height: 23%;
+			margin-top: 78%;
+			margin-left: 28%;
+		}
+		#hb_5{
+			height: 23%;
+			margin-top: 138%;
+			margin-left: 28%;
+		}
 		@media screen and (max-device-width: 1600px) { 
 			*{font-size: 20px;
 			  overflow: hidden;}
-		}
+			 }
 
 		@media screen and (max-device-width: 1400px) { 
 			*{font-size: 17px;
 			  overflow: hidden;}
-		}
+			 		}
 
 		@media screen and (max-device-width: 1280px) {
-			*{font-size: 13px;
-			  overflow: hidden;}
+			*{font-size: 16px;
+			 }
 		}
 
 		 @media screen and (max-width: 1024px) { 
-			*{font-size: 9px;
+			*{font-size: 12px;
 			  overflow: hidden;}
 		}
 		@media screen and (max-width: 900px){
 			*{
 				font-size: 8px;
 				overflow: hidden;
-			}
+			}}
 				@media screen and (max-width: 400px){
 			*{
 				font-size: 5px;
 				overflow: hidden;
 			}
+		}
+		*{
+			background-position: center;
 		}

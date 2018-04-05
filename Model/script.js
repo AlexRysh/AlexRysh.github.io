@@ -59,11 +59,11 @@ switchModel = function(switchCurrentValue, switchMaxValue, startAngle, rotateAng
     	model.rotateAngle = rotateAngle;
     	model.jqSwitch = jqSwitch;
 }
-changeSwitchPosition = function(oSwitch, checkStatusFunc,event){
+changeSwitchPosition = function(oSwitch, checkStatusFunc, event){
 		if(event.which === 1) {
-			if(oSwitch.switchCurrentValue>0){
-				oSwitch.switchCurrentValue-=1;
-				oSwitch.startAngle= oSwitch.startAngle-oSwitch.rotateAngle;
+			if(oSwitch.switchCurrentValue > 0){
+				oSwitch.switchCurrentValue -= 1;
+				oSwitch.startAngle = oSwitch.startAngle-oSwitch.rotateAngle;
 				oSwitch.jqSwitch.css({
 					'-moz-transform': 'rotate('+oSwitch.startAngle+'deg)', 
 					'-ms-transform' : 'rotate('+oSwitch.startAngle+'deg)', 
@@ -74,9 +74,9 @@ changeSwitchPosition = function(oSwitch, checkStatusFunc,event){
 		}
 		else if(event.which === 3){
 			
-			if(oSwitch.switchCurrentValue<oSwitch.switchMaxValue){
-				oSwitch.switchCurrentValue+=1;
-				oSwitch.startAngle=oSwitch.startAngle+oSwitch.rotateAngle;
+			if(oSwitch.switchCurrentValue < oSwitch.switchMaxValue){
+				oSwitch.switchCurrentValue += 1;
+				oSwitch.startAngle = oSwitch.startAngle + oSwitch.rotateAngle;
 				oSwitch.jqSwitch.css({
 					'-moz-transform': 'rotate('+oSwitch.startAngle+'deg)', 
 					'-ms-transform' : 'rotate('+oSwitch.startAngle+'deg)', 
@@ -230,8 +230,203 @@ function block_2(sSelector){
     	b.specialThumbler = b.model.find('.thumbler__off_special');
     	b.switch4 = b.model.find('#switch4');
     	b.switch5 = b.model.find('#switch5');
-	adaptWindow(b.model);
- 	setFalse(b.thumblersValue);
+    	b.rot1 = b.model.find('#rot_1');
+    	b.rot2 = b.model.find('#rot_2');
+    	b.rot3 = b.model.find('#rot_3');
+    	b.rot4 = b.model.find('#rot_4');
+    	b.rot5 = b.model.find('#rot_5');
+    	b.hw1 = b.model.find('#hw1');
+    	b.hw2 = b.model.find('#hw2');
+    	b.KButton = b.model.find(".k-button");
+    	b.thumbler_hor = b.model.find(".thumbler_hor");
+    	b.thumbler_hor_2 = b.model.find(".thumbler_hor_2")
+    	b.rot1Angle = 0;
+ 		b.rot2Angle = 0;
+ 		b.rot3Angle = 0;
+ 		b.rot4Angle = 0;
+ 		b.rot5Angle = 0;
+ 		b.hw1Angle = 0;
+ 		b.hw2Angle = 0;
+		adaptWindow(b.model);
+ 		setFalse(b.thumblersValue);
+ 	 	
+ 		b.thumbler_hor_2.click(function(){
+ 			b.thumbler_hor_2.addClass("thumbler_hor_2_off");
+ 		    b.thumbler_hor_2.removeClass("thumbler_hor_2");
+ 		    b.model.find('.indicator_3').css({"opacity":"1"});
+ 			setTimeout(function(){b.thumbler_hor_2.addClass("thumbler_hor_2"); 
+ 			b.thumbler_hor_2.removeClass("thumbler_hor_2_off");
+ 		  	b.model.find('.indicator_3').css({"opacity":"0.6","color":"black"});}, 2000)})
+ 	 	b.thumbler_hor.click(function(){b.thumbler_hor.toggleClass("thumbler_hor_off")});
+ 		b.KButton.click(function(){$(this).toggleClass("k-button_clicked")});
+ 		b.changeRot1Position = function(event){
+ 		spin1 = setInterval(function(){
+		if(event.which === 1) {
+			b.rot1Angle -= 1;
+				b.rot1.css({
+					'-moz-transform': 'rotate('+b.rot1Angle+'deg)', 
+					'-ms-transform' : 'rotate('+b.rot1Angle+'deg)', 
+					'-webkit-transform': 'rotate('+b.rot1Angle+'deg)', 
+					'-o-transform': 'rotate('+b.rot1Angle + 'deg)', 
+					'transform': 'rotate('+b.rot1Angle + 'deg)'});
+			}
+		else if(event.which === 3){
+			b.rot1Angle += 1;
+				b.rot1.css({
+					'-moz-transform': 'rotate('+b.rot1Angle+'deg)', 
+					'-ms-transform' : 'rotate('+b.rot1Angle+'deg)', 
+					'-webkit-transform': 'rotate('+b.rot1Angle+'deg)', 
+					'-o-transform': 'rotate('+b.rot1Angle+'deg)', 
+					'transform': 'rotate('+b.rot1Angle+'deg)'});
+		 	}
+		else{alert('press left or right button');}}, 6);
+		document.onmouseup = function(){clearInterval(window.spin1)};
+	};
+	b.changeRot2Position = function(event){
+ 		spin2 = setInterval(function(){
+		if(event.which === 1) {
+			b.rot2Angle -= 1;
+				b.rot2.css({
+					'-moz-transform': 'rotate('+b.rot2Angle+'deg)', 
+					'-ms-transform' : 'rotate('+b.rot2Angle+'deg)', 
+					'-webkit-transform': 'rotate('+b.rot2Angle+'deg)', 
+					'-o-transform': 'rotate('+b.rot2Angle + 'deg)', 
+					'transform': 'rotate('+b.rot2Angle + 'deg)'});
+			}
+		else if(event.which === 3){
+			b.rot2Angle += 1;
+				b.rot2.css({
+					'-moz-transform': 'rotate('+b.rot2Angle+'deg)', 
+					'-ms-transform' : 'rotate('+b.rot2Angle+'deg)', 
+					'-webkit-transform': 'rotate('+b.rot2Angle+'deg)', 
+					'-o-transform': 'rotate('+b.rot2Angle+'deg)', 
+					'transform': 'rotate('+b.rot2Angle+'deg)'});
+		 	}
+		else{alert('press left or right button');}}, 6);
+		document.onmouseup = function(){clearInterval(window.spin2)};
+	};
+	b.changeRot3Position = function(event){
+ 		spin3 = setInterval(function(){
+		if(event.which === 1) {
+			b.rot3Angle -= 1;
+				b.rot3.css({
+					'-moz-transform': 'rotate('+b.rot3Angle+'deg)', 
+					'-ms-transform' : 'rotate('+b.rot3Angle+'deg)', 
+					'-webkit-transform': 'rotate('+b.rot3Angle+'deg)', 
+					'-o-transform': 'rotate('+b.rot3Angle + 'deg)', 
+					'transform': 'rotate('+b.rot3Angle + 'deg)'});
+			}
+		else if(event.which === 3){
+			b.rot3Angle += 1;
+				b.rot3.css({
+					'-moz-transform': 'rotate('+b.rot3Angle+'deg)', 
+					'-ms-transform' : 'rotate('+b.rot3Angle+'deg)', 
+					'-webkit-transform': 'rotate('+b.rot3Angle+'deg)', 
+					'-o-transform': 'rotate('+b.rot3Angle+'deg)', 
+					'transform': 'rotate('+b.rot3Angle+'deg)'});
+		 	}
+		else{alert('press left or right button');}}, 6);
+		document.onmouseup = function(){clearInterval(window.spin3)};
+	};
+	b.changeRot4Position = function(event){
+ 		spin4 = setInterval(function(){
+		if(event.which === 1) {
+			b.rot4Angle -= 1;
+				b.rot4.css({
+					'-moz-transform': 'rotate('+b.rot4Angle+'deg)', 
+					'-ms-transform' : 'rotate('+b.rot4Angle+'deg)', 
+					'-webkit-transform': 'rotate('+b.rot4Angle+'deg)', 
+					'-o-transform': 'rotate('+b.rot4Angle + 'deg)', 
+					'transform': 'rotate('+b.rot4Angle + 'deg)'});
+			}
+		else if(event.which === 3){
+			b.rot4Angle += 1;
+				b.rot4.css({
+					'-moz-transform': 'rotate('+b.rot4Angle+'deg)', 
+					'-ms-transform' : 'rotate('+b.rot4Angle+'deg)', 
+					'-webkit-transform': 'rotate('+b.rot4Angle+'deg)', 
+					'-o-transform': 'rotate('+b.rot4Angle+'deg)', 
+					'transform': 'rotate('+b.rot4Angle+'deg)'});
+		 	}
+		else{alert('press left or right button');}}, 6);
+		document.onmouseup = function(){clearInterval(window.spin4)};
+	};
+	b.changeRot5Position = function(event){
+ 		spin5 = setInterval(function(){
+		if(event.which === 1) {
+			b.rot5Angle -= 1;
+				b.rot5.css({
+					'-moz-transform': 'rotate('+b.rot5Angle+'deg)', 
+					'-ms-transform' : 'rotate('+b.rot5Angle+'deg)', 
+					'-webkit-transform': 'rotate('+b.rot5Angle+'deg)', 
+					'-o-transform': 'rotate('+b.rot5Angle + 'deg)', 
+					'transform': 'rotate('+b.rot5Angle + 'deg)'});
+			}
+		else if(event.which === 3){
+			b.rot5Angle += 1;
+				b.rot5.css({
+					'-moz-transform': 'rotate('+b.rot5Angle+'deg)', 
+					'-ms-transform' : 'rotate('+b.rot5Angle+'deg)', 
+					'-webkit-transform': 'rotate('+b.rot5Angle+'deg)', 
+					'-o-transform': 'rotate('+b.rot5Angle+'deg)', 
+					'transform': 'rotate('+b.rot5Angle+'deg)'});
+		 	}
+		else{alert('press left or right button');}}, 6);
+		document.onmouseup = function(){clearInterval(window.spin5)};
+	};
+	b.changeHW1Position = function(event){
+ 		spin6 = setInterval(function(){
+		if(event.which === 1) {
+			b.hw1Angle -= 1;
+				b.hw1.css({
+					'-moz-transform': 'rotate('+b.hw1Angle+'deg)', 
+					'-ms-transform' : 'rotate('+b.hw1Angle+'deg)', 
+					'-webkit-transform': 'rotate('+b.hw1Angle+'deg)', 
+					'-o-transform': 'rotate('+b.hw1Angle + 'deg)', 
+					'transform': 'rotate('+b.hw1Angle + 'deg)'});
+			}
+		else if(event.which === 3){
+			b.hw1Angle += 1;
+				b.hw1.css({
+					'-moz-transform': 'rotate('+b.hw1Angle+'deg)', 
+					'-ms-transform' : 'rotate('+b.hw1Angle+'deg)', 
+					'-webkit-transform': 'rotate('+b.hw1Angle+'deg)', 
+					'-o-transform': 'rotate('+b.hw1Angle+'deg)', 
+					'transform': 'rotate('+b.hw1Angle+'deg)'});
+		 	}
+		else{alert('press left or right button');}}, 6);
+		document.onmouseup = function(){clearInterval(window.spin6)};
+	};
+	b.changeHW2Position = function(event){
+ 		spin7 = setInterval(function(){
+		if(event.which === 1) {
+			b.hw2Angle -= 1;
+				b.hw2.css({
+					'-moz-transform': 'rotate('+b.hw2Angle+'deg)', 
+					'-ms-transform' : 'rotate('+b.hw2Angle+'deg)', 
+					'-webkit-transform': 'rotate('+b.hw2Angle+'deg)', 
+					'-o-transform': 'rotate('+b.hw2Angle + 'deg)', 
+					'transform': 'rotate('+b.hw2Angle + 'deg)'});
+			}
+		else if(event.which === 3){
+			b.hw2Angle += 1;
+				b.hw2.css({
+					'-moz-transform': 'rotate('+b.hw2Angle+'deg)', 
+					'-ms-transform' : 'rotate('+b.hw2Angle+'deg)', 
+					'-webkit-transform': 'rotate('+b.hw2Angle+'deg)', 
+					'-o-transform': 'rotate('+b.hw2Angle+'deg)', 
+					'transform': 'rotate('+b.hw2Angle+'deg)'});
+		 	}
+		else{alert('press left or right button');}}, 6);
+		document.onmouseup = function(){clearInterval(window.spin7)};
+	};
+	b.rot1.mousedown(b.changeRot1Position);
+	b.rot2.mousedown(b.changeRot2Position);
+	b.rot3.mousedown(b.changeRot3Position);
+	b.rot4.mousedown(b.changeRot4Position);
+	b.rot5.mousedown(b.changeRot5Position);
+	b.hw1.mousedown(b.changeHW1Position);
+	b.hw2.mousedown(b.changeHW2Position);
 
 	switch_3 = new switchModel(0, 3, 30, 40, b.model.find('#switch3'));
   	switch_4 = new switchModel(0, 3, 30, 40, b.model.find('#switch4'));
@@ -250,7 +445,7 @@ function block_2(sSelector){
 		b.checkAll();
 	};
 
-	b.rotateSwitch_3=function(event){changeSwitchPosition(switch_3, b.checkAll, event)};
+	b.rotateSwitch_3 = function(event){changeSwitchPosition(switch_3, b.checkAll, event)};
 	b.rotateSwitch_4 = function(event){changeSwitchPosition(switch_4, b.checkAll, event)};
 	b.rotateSwitch_5 = function(event){changeSwitchPosition(switch_5, b.checkAll, event)};
 
