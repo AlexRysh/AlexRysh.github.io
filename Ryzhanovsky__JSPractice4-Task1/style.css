@@ -134,7 +134,7 @@ body:before {
 }
 
 .slide__description{
-	width: 20em;
+	max-width: 20em;
 	position: absolute;
 	color: white;
 	text-align: center;
