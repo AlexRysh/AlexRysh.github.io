@@ -2,7 +2,7 @@
 
 function slider(sSelector) {
 	var s = this;
-	s.wrapper = document.querySelector('main');
+	s.wrapper = document.querySelector(sSelector);
 	s.slider = s.wrapper.querySelector('.slider');
 	s.sliderWrapper = s.slider.querySelector('.slider__wrapper');
 	s.slide = s.slider.querySelectorAll('.slider__slide');
