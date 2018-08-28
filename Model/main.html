@@ -6,8 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="images/shevron-logo.png" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="style.css">
-    <script src="jquery-3.2.1.min.js"></script>
-    <script src="script.js" type="text/javascript"></script>
 </head>
 <body data-custom_resize="false">
 <div class="wrapper">
@@ -91,6 +89,8 @@
     <div class="center-mark mark_8"></div>
 </div>
 <div class="wrapper_2">
+    <div class="grey-filter-over-arrow grey-filter-over-arrow_left"></div>
+    <div class="grey-filter-over-arrow grey-filter-over-arrow_right"></div>
     <div class="thumbler__off_2" id="th15"></div>
     <div class="clearfix"></div>
     <div class="thumbler__off_special" id="th16"></div>
@@ -99,63 +99,63 @@
     <table class="light_indicators_1">
         <tr>
             <td class="light_indicators light_indicators__green light-indicators__KSV">КС<sub>в</sub></td>
-            <td class="light_indicators light_indicators__green">НАЛИЧИЕ I</td>
-            <td class="light_indicators light_indicators__green">ОТР ЦУ І</td>
-            <td class="light_indicators light_indicators__green">ГОТ I</td>
+            <td class="light_indicators light_indicators__green light_indicators__rocket-present">НАЛИЧИЕ I</td>
+            <td class="light_indicators light_indicators__green light_indicators__control-8">ОТР ЦУ І</td>
+            <td class="light_indicators light_indicators__green light_indicators__control-12">ГОТ I</td>
             <td class="light_indicators light_indicators__green"></td>
-            <td class="light_indicators light_indicators__green">ε<10°</td>
+            <td class="light_indicators light_indicators__green epsilon_indicator">ε<10°</td>
         </tr>
         <tr>
             <td class="light_indicators light_indicators__yellow">Ц</td>
-            <td class="light_indicators light_indicators__green">НАЛИЧИЕ II</td>
-            <td class="light_indicators light_indicators__green">ОТР ЦУ ІІ</td>
-            <td class="light_indicators light_indicators__green">ГОТ II</td>
-            <td class="light_indicators light_indicators__green">ОТР АЗ</td>
+            <td class="light_indicators light_indicators__green light_indicators__rocket-present">НАЛИЧИЕ II</td>
+            <td class="light_indicators light_indicators__green light_indicators__control-9">ОТР ЦУ ІІ</td>
+            <td class="light_indicators light_indicators__green light_indicators__control-13">ГОТ II</td>
+            <td class="light_indicators light_indicators__green light_indicators__az">ОТР АЗ</td>
             <td class="light_indicators light_indicators__green">БАР 9М38</td>
         </tr>
         <tr>
-            <td class="light_indicators light_indicators__green">ЗЦ</td>
-            <td class="light_indicators light_indicators__green">НАЛИЧИЕ III</td>
-            <td class="light_indicators light_indicators__green">ОТР ЦУ ІІІ</td>
-            <td class="light_indicators light_indicators__green">ГОТ III</td>
-            <td class="light_indicators light_indicators__green">ОТР УМ</td>
-            <td class="light_indicators light_indicators__red">Люки</td>
+            <td class="light_indicators light_indicators__green light_indicators__first-check light_indicators__first-check-end light_indicators__control-2">ЗЦ</td>
+            <td class="light_indicators light_indicators__green light_indicators__rocket-present">НАЛИЧИЕ III</td>
+            <td class="light_indicators light_indicators__green light_indicators__control-10">ОТР ЦУ ІІІ</td>
+            <td class="light_indicators light_indicators__green light_indicators__control-14">ГОТ III</td>
+            <td class="light_indicators light_indicators__green light_indicators__um">ОТР УМ</td>
+            <td class="light_indicators light_indicators__red light_indicators__windows">Люки</td>
         </tr>
         <tr>
-            <td class="light_indicators light_indicators__green">НАВ</td>
-            <td class="light_indicators light_indicators__green">НАЛИЧИЕ IV</td>
-            <td class="light_indicators light_indicators__green">ОТР ЦУ ІV</td>
-            <td class="light_indicators light_indicators__green">ГОТ IV</td>
+            <td class="light_indicators light_indicators__green light_indicators__first-check light_indicators__first-check-end light_indicators__control-3">НАВ</td>
+            <td class="light_indicators light_indicators__green light_indicators__rocket-present">НАЛИЧИЕ IV</td>
+            <td class="light_indicators light_indicators__green light_indicators__control-11">ОТР ЦУ ІV</td>
+            <td class="light_indicators light_indicators__green light_indicators__control-15">ГОТ IV</td>
             <td class="light_indicators light_indicators__yellow">ЗВ</td>
             <td class="light_indicators light_indicators__red">П</td>
         </tr>
     </table>
     <table class="light_indicators_2">
         <tr>
-            <td class="light_indicators light_indicators__yellow">K</td>
-            <td class="light_indicators light_indicators__green">ИСПР 2В</td>
+            <td class="light_indicators light_indicators__yellow light_indicators__control light_indicators__first-check-end">K</td>
+            <td class="light_indicators light_indicators__green light_indicators__ready light_indicators__ready__2B">ИСПР 2В</td>
             <td class="light_indicators light_indicators__green">ОТК I</td>
-            <td class="light_indicators light_indicators__green">КРАН ПОХОД</td>
+            <td class="light_indicators light_indicators__green light_indicators__on-the-way">КРАН ПОХОД</td>
             <td class="light_indicators unknown roll" rowspan="2"></td>
             <td class="light_indicators unknown lither" rowspan="2"></td>
         </tr>
         <tr>
-            <td class="light_indicators light_indicators__green">ИСПР 9А39</td>
-            <td class="light_indicators light_indicators__green">ИСПР АВМ</td>
+            <td class="light_indicators light_indicators__green light_indicators__9a39-ready light_indicators__first-check-end light_indicators__control-7">ИСПР 9А39</td>
+            <td class="light_indicators light_indicators__green light_indicators__first-check light_indicators__first-check-end light_indicators__control-4">ИСПР АВМ</td>
             <td class="light_indicators light_indicators__green">ОТК II</td>
-            <td class="light_indicators light_indicators__green">АЧ ПОХОД</td>
+            <td class="light_indicators light_indicators__green light_indicators__on-the-way light_indicators__on-the-way-1">АЧ ПОХОД</td>
         </tr>
         <tr>
-            <td class="light_indicators light_indicators__green">НЕИСПР. 9А39</td>
-            <td class="light_indicators light_indicators__green">ИСПР П1</td>
+            <td class="light_indicators light_indicators__green light_indicators__control light_indicators__control-1">НЕИСПР. 9А39</td>
+            <td class="light_indicators light_indicators__green light_indicators__first-check light_indicators__first-check-end light_indicators__control-5">ИСПР П1</td>
             <td class="light_indicators light_indicators__green">ОТК III</td>
             <td class="light_indicators light_indicators__red">ЛЕВЫЙ УПОР</td>
-            <td class="light_indicators-title">Барабан</td>
-            <td class="light_indicators-title">Литера</td>
+            <td class="light_indicators-title">БАРАБАН</td>
+            <td class="light_indicators-title">ЛИТЕРА</td>
         </tr>
         <tr>
-            <td class="light_indicators light_indicators__green">ИСПР АМ1</td>
-            <td class="light_indicators light_indicators__green">ИСПР 9И31</td>
+            <td class="light_indicators light_indicators__green light_indicators__ready AM-1-indicator">ИСПР АМ1</td>
+            <td class="light_indicators light_indicators__green light_indicators__first-check light_indicators__first-check-end light_indicators__control-6">ИСПР 9И31</td>
             <td class="light_indicators light_indicators__green">ОТК IV</td>
             <td class="light_indicators light_indicators__red">ПРАВЫЙ УПОР</td>
             <td class="light_indicators light_indicators__green">ЭКВ</td>
@@ -173,11 +173,12 @@
         <div class="board">
             <div class="lock"></div>
         </div>
-        <div class="thumbler__off_2 hidden_thumbler" id="th22"></div>
-        <div class="thumbler__off_2 hidden_thumbler" id="th23"></div>
-        <div class="thumbler__off_2 hidden_thumbler" id="th24"></div>
-        <div class="thumbler__off_2 hidden_thumbler" id="th25"></div>
-        <div class="thumbler__off_2 hidden_thumbler" id="th26"></div>
+        <div class="thumbler__off_2 hidden_thumbler" id="th22" title="example"><p class="hidden_thumbler__caption">Ц</p></div>
+        <div class="thumbler__off_2 hidden_thumbler" id="th23"><p class="hidden_thumbler__caption">ЗЦ</p></div>
+        <div class="thumbler__off_2 hidden_thumbler" id="th24"><p class="hidden_thumbler__caption">НАВ</p></div>
+        <div class="thumbler__off_2 hidden_thumbler" id="th25"><p class="hidden_thumbler__caption">ЗВ</p></div>
+        <div class="thumbler__off_2 hidden_thumbler" id="th26"><p class="hidden_thumbler__caption">АВТ</p></div>
+        <p class="hidden_thumblers__bottom-caption">ВЫКЛЮЧЕНО</p>
     </div>
     <div class="small_btn arrow_control"></div>
     <div class="A">
@@ -211,22 +212,24 @@
     <div class="persp_1">
         <div class="k-button hidden_button" id="hb_1"></div>
         <div class="k-button hidden_button" id="hb_2"></div>
-        <div class="board_1"></div>
+        <div class="board_1">
+            <p>НП1</p>
+            <p>НП2</p>
+        </div>
     </div>
     <div class="persp_2">
         <div class="k-button hidden_button" id="hb_3"></div>
         <div class="k-button hidden_button" id="hb_4"></div>
         <div class="k-button hidden_button" id="hb_5"></div>
-        <div class="board_2"></div>
+        <div class="board_2">
+            <p>П</p>
+            <p>НП3</p>
+            <p>НП4</p>
+        </div>
     </div>
     <div class="small_btn indicators_control"></div>
-
-    <!-- div class = "power_thumblers">
-    </div> -->
 </div>
 </body>
-<script>
-    var b1 = new block_1(".wrapper");
-    var b2 = new block_2(".wrapper_2");
-</script>
+<script src="jquery-3.2.1.min.js"></script>
+<script src="script.js" type="text/javascript"></script>
 </html>

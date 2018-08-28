@@ -1,3 +1,5 @@
+var b1 = new block_1(".wrapper"),
+	b2 = new block_2(".wrapper_2");
 $(document).ready(function() {
     var ctrl = false;
     $(document).keydown(function(e){
@@ -22,12 +24,12 @@ $(document).ready(function() {
     });
 });
 
-adaptWindow = function(container){
+function adaptWindow(container){
 		if(sessionStorage.getItem('firstLoadWidth')===null){
 			sessionStorage.setItem('firstLoadWidth', window.innerWidth);
 			sessionStorage.setItem('firstLoadHeight	', window.innerHeight);
 		}
-		windowChangeSize = function(){
+		function windowChangeSize(){
 		var client_w=document.body.clientWidth,
 			client_h=document.body.clientHeight;
 		if(sessionStorage.getItem('firstLoadWidth')==window.innerWidth||Math.round(window.innerWidth*100/sessionStorage.getItem('firstLoadWidth'))!=Math.round  (window.innerHeight*100/sessionStorage.getItem('firstLoadHeight'))){
@@ -39,12 +41,12 @@ adaptWindow = function(container){
 	$(window).ready(windowChangeSize);
 	$(window).resize(windowChangeSize);
 }
-setFalse = function(thumblers){
+function setFalse(thumblers){
 	for (var i = thumblers.length - 1; i >= 0; i--) {
 		 thumblers[i] = false;
 	}
 }
-switchModel = function(switchCurrentValue, switchMaxValue, startAngle, rotateAngle, jqSwitch){
+function switchModel(switchCurrentValue, switchMaxValue, startAngle, rotateAngle, jqSwitch){
     	model = this;
     	model.switchCurrentValue = switchCurrentValue;
     	model.switchMaxValue = switchMaxValue;
@@ -52,7 +54,7 @@ switchModel = function(switchCurrentValue, switchMaxValue, startAngle, rotateAng
     	model.rotateAngle = rotateAngle;
     	model.jqSwitch = jqSwitch;
 }
-changeSwitchPosition = function(oSwitch, checkStatusFunc, event){
+function changeSwitchPosition(oSwitch, checkStatusFunc, event){
 		if(event.which === 1) {
 			if(oSwitch.switchCurrentValue > 0){
 				oSwitch.switchCurrentValue -= 1;
@@ -82,6 +84,7 @@ changeSwitchPosition = function(oSwitch, checkStatusFunc, event){
 		checkStatusFunc();
 };
 appThumbler = false;
+
 function block_1(sSelector){
 	var b = this;
 		b.model  = $(sSelector);
@@ -95,7 +98,6 @@ function block_1(sSelector){
 		b.model.on("contextmenu", false);
 		b.arrowAngle = 0;
 	var lightAVM = null;
-		
 		adaptWindow(b.model);
  		setFalse(b.thumblersValue);
  		$(window).keypress(function(e){
@@ -122,6 +124,7 @@ function block_1(sSelector){
 					jqThumbler.removeClass('thumbler__on');
 					b.thumblersValue[b.currentThum] = false;}
 			b.checkAll();
+			b2.checkAll();
 		};
 
 		b.arrowCreator = function(sec, min, hour, secAngle, minAngle, hourAngle, moveCondition){
@@ -134,6 +137,7 @@ function block_1(sSelector){
 			arrow.hourAngle = hourAngle;
 			arrow.moveCondition = moveCondition;
 		}
+
 		b.rotateArrows = function(arrow){
 		var condition = true;
 			for (var i = arrow.moveCondition.length - 1; i >= 0; i--) {
@@ -180,10 +184,14 @@ function block_1(sSelector){
 
 		b.checkAll = function() {
 			if (appThumbler) {
+				b.model.find('#in1').css({'background': 'rgb(247, 255, 165)', 'color': 'rgb(255,104,0)'});
+				b.model.find('#in2').css({'background': 'rgb(247, 255, 165)', 'color': 'rgb(255,104,0)'});
 				if (lightAVM === null){
-				lightAVM=setTimeout(function(){b.model.find("#in5").css('background', 'rgb(247, 255, 165)'); console.log(Date.now())}, 5999)}
+				lightAVM=setTimeout(function(){b.model.find("#in5").css({'background': 'rgb(247, 255, 165)', 'color': 'rgb(255,104,0)'})}, 5999)}
 			}else{								
-				b.model.find("#in5").css('background','rgb(230,230,230)');
+				b.model.find('#in1').css({'background': 'rgb(230,230,230)', 'color': 'black'});
+				b.model.find('#in2').css({'background': 'rgb(230,230,230)', 'color': 'black'});
+				b.model.find("#in5").css({'background': 'rgb(230,230,230)', 'color': 'black'});
 				clearTimeout(lightAVM);
 				lightAVM = null;
 			};
@@ -199,20 +207,27 @@ function block_1(sSelector){
 					'-o-transform': 'rotate('+b.changedArrowAngle+'deg)',
 					'transform': 'rotate('+b.changedArrowAngle+'deg)'});
 			};
-			if(appThumbler && b.thumblersValue[0] && b.thumblersValue[1]){b.model.find('#in8').css('background', 'rgb(247, 255, 165)');}
-						else{b.model.find('#in8').css('background','rgb(230,230,230)');}
-			if(appThumbler && b.thumblersValue[9] && b.thumblersValue[10]){b.model.find('#in6').css('background', 'rgb(247, 255, 165)');}
-						else{b.model.find('#in6').css('background','rgb(230,230,230)');}
-			if(appThumbler && b.thumblersValue[4] && b.thumblersValue[5] && b.thumblersValue[6]){b.model.find('#in3').css('background', 'rgb(247, 255, 165)');}
-						else{b.model.find('#in3').css('background','rgb(230,230,230)');}
-			if(appThumbler && b.thumblersValue[11] && b.thumblersValue[12]){b.model.find('#in7').css('background', 'rgb(247, 255, 165)');}
-						else{b.model.find('#in7').css('background','rgb(230,230,230)'); }
-			if(appThumbler && b.thumblersValue[7] && b.thumblersValue[8]){b.model.find('#in4').css('background', 'rgb(247, 255, 165)');}
-						else{b.model.find('#in4	').css('background','rgb(230,230,230)');}
+			if(appThumbler && b.thumblersValue[0] && b.thumblersValue[1]){b.model.find('#in8').css({'background': 'rgb(247, 255, 165)', 'color' : 'rgb(255,104,0)'});}
+						else{b.model.find('#in8').css({'background': 'rgb(230,230,230)', 'color': 'black'});}
+			if(appThumbler && b.thumblersValue[9] && b.thumblersValue[10]){b.model.find('#in6').css({'background': 'rgb(247, 255, 165)', 'color' : 'rgb(255,104,0)'});}
+						else{b.model.find('#in6').css({'background': 'rgb(230,230,230)', 'color': 'black'});}
+			if(appThumbler && b.thumblersValue[4] && b.thumblersValue[5] && b.thumblersValue[6]){b.model.find('#in3').css({'background': 'rgb(247, 255, 165)','color' : 'rgb(255,104,0)'});}
+						else{b.model.find('#in3').css({'background': 'rgb(230,230,230)', 'color': 'black'});}
+			if(appThumbler && b.thumblersValue[11] && b.thumblersValue[12]){b.model.find('#in7').css({'background': 'rgb(247, 255, 165)', 'color' : 'rgb(255,104,0)'});}
+						else{b.model.find('#in7').css({'background': 'rgb(230,230,230)', 'color': 'black'});}
+			if(appThumbler && b.thumblersValue[7] && b.thumblersValue[8]){b.model.find('#in4').css({'background': 'rgb(247, 255, 165)', 'color' : 'rgb(255,104,0)'});}
+						else{b.model.find('#in4	').css({'background': 'rgb(230,230,230)', 'color': 'black'});}
 			if(appThumbler && b.thumblersValue[9] && b.thumblersValue[10] && (switch_2.switchCurrentValue !==0 ) && switch_1.switchCurrentValue === 2){
 				b.rotatePowerArrow();}
 			else if(appThumbler && b.thumblersValue[11] && b.thumblersValue[12] && (switch_2.switchCurrentValue <5 && switch_2.switchCurrentValue !==0) && switch_1.switchCurrentValue  === 4){
 				b.rotatePowerArrow();}
+			else if(appThumbler && switch_1.switchCurrentValue === 1 && switch_2.switchCurrentValue < 8 && switch_2.switchCurrentValue !==0){
+				b.rotatePowerArrow();}
+			else if(appThumbler && switch_1.switchCurrentValue === 5 && switch_2.switchCurrentValue === 1 && b.thumblersValue[11] && b.thumblersValue[12]){
+				b.rotatePowerArrow();}
+			else if(appThumbler && switch_1.switchCurrentValue === 3 && switch_2.switchCurrentValue < 6 && switch_2.switchCurrentValue !== 0 && b.thumblersValue[9] && b.thumblersValue[10]){
+				b.rotatePowerArrow();
+			}
 			else{b.arrow.css({
 					'-moz-transform': 'rotate(-45 deg)',
 					'-ms-transform' : 'rotate(-45 deg)',
@@ -221,7 +236,7 @@ function block_1(sSelector){
 					'transform': 'rotate(-45deg)'});
 		}
 	};
-		$("body").find("#th15").click(function(){setTimeout(b.checkAll, 10)});
+	$("body").find("#th15").click(function(){setTimeout(b.checkAll, 10)});
 
 	setInterval(b.rotateArrows_1, 1000);
 	setInterval(b.rotateArrows_2, 1000);
@@ -259,7 +274,11 @@ function block_2(sSelector){
     	b.thumbler_hor_2 = b.model.find(".thumbler_hor_2");
     	b.arrowControl = b.model.find(".arrow_control");
     	b.indicatorsControl = b.model.find(".indicators_control");
-    	b.AArrow  = b.model.find(".A_arrow");
+    	b.AArrow = b.model.find(".A_arrow");
+    	b.AArrowAngleY = Math.random() * (38 + 38) - 38;
+    	b.AArrowAngleO = Math.random() * (38 + 38) - 38;
+    	b.AArrowAccurateAngleY = b.AArrowAngleY + b.AArrowAngleY*(Math.random()*(0.4-0.2)+0.2);
+		b.AArrowAccurateAngleO = b.AArrowAngleO + b.AArrowAngleO*(Math.random()*(0.4-0.2)+0.2);
     	b.thumbler_horValue = 0;
     	b.thumbler_hor_2Value = 3;
     	b.opticsThumblerValue = 3;
@@ -273,15 +292,28 @@ function block_2(sSelector){
  		b.scales = [];
  		b.scalesAngle = [];
 
- 		for(i = 0; i < 16; i++){
- 			b.scalesAngle[i] = 0;
- 			b.scales.push($(".wrapper_3").find(".scale_"+(i+1)))
- 		}
 
-		adaptWindow(b.model);
- 		setFalse(b.thumblersValue);
- 	 	adaptWindow($(".wrapper_3"));
- 	 	$(window).keypress(function(e){
+ 	if(b.AArrowAccurateAngleO > 40){
+ 		b.AArrowAccurateAngleO = 40;
+ 	}else if (b.AArrowAccurateAngleO < -40){
+ 		b.AArrowAccurateAngleO = -40;
+ 	}else{}
+
+ 	if(b.AArrowAccurateAngleY > 40){
+ 		b.AArrowAccurateAngleY = 40;
+ 	}else if (b.AArrowAccurateAngleY < -40){
+ 		b.AArrowAccurateAngleY = -40;
+ 	}else{}
+
+ 	for(i = 0; i < 16; i++){
+ 		b.scalesAngle[i] = 0;
+ 		b.scales.push($(".wrapper_3").find(".scale_"+(i+1)))
+ 	}
+
+	adaptWindow(b.model);
+ 	setFalse(b.thumblersValue);
+ 	adaptWindow($(".wrapper_3"));
+ 	$(window).keypress(function(e){
     if(e.which == 50) {
           $('.wrapper_2').css({'display': 'block'});
           $('.wrapper_3').css({'display': 'block'});
@@ -294,26 +326,51 @@ function block_2(sSelector){
 	  	  $('.wrapper_3').css({'display': 'none'});
 	  	  b.checkAll();	}
 });
+ 		b.arrowControl.click(function(){
+ 			if (b.accurateAngle) {
+ 				b.AArrowAngleO = b.AArrowAccurateAngleO;
+ 	 			b.AArrowAngleY = b.AArrowAccurateAngleY;
+ 				b.accurateAngle = false;
+ 				b.arrowControl.removeClass("small_btn_on");
+ 	 			b.arrowControl.addClass("arrow_control");
+ 			} else {
+ 				b.accurateAngle = true;
+ 				b.arrowControl.removeClass("arrow_control");
+ 				b.arrowControl.addClass("small_btn_on");
+ 			}	
+ 	 		b.checkAll();
+ 	 	});
 
- 	 	b.arrowControl.click(function(){
+		/*
+ 	 	b.arrowControl.mousedown(function(){
+ 	 		b.accurateAngle = true;
+ 	 		console.log(b.accurateAngle)
+ 	 		b.checkAll();
  	 		b.arrowControl.removeClass("arrow_control");
  	 		b.arrowControl.addClass("small_btn_on");
- 	 		setTimeout(function(){
- 	 			b.arrowControl.removeClass("small_btn_on");
- 	 			b.arrowControl.addClass("arrow_control");
- 	 		}, 500)
+ 	 		b.model.bind('mouseup',function(){
+ 	 			setTimeout(function(){
+ 	 				b.arrowControl.removeClass("small_btn_on");
+ 	 				b.arrowControl.addClass("arrow_control");
+ 	 				b.accurateAngle = false;
+ 	 				console.log(b.accurateAngle)
+ 	 				b.checkAll();
+ 	 				b.model.unbind('mouseup');
+ 	 			}, 2000);
+            });
  	 	});
+		*/
 
         b.indicatorsControl.mousedown(function () {	
             b.indicatorsControl.removeClass("indicators_control");
             b.indicatorsControl.addClass("small_btn_on_indicators");
-            if(appThumbler){
-            	b.model.find('.light_indicators').css({opacity : 1})
+            if(appThumbler && $(document).find('#th1').hasClass('thumbler__on') && $(document).find('#th2').hasClass('thumbler__on')){
+            	$('td').addClass('light_indicators__check');
             }
             b.model.bind('mouseup',function(){
                 b.indicatorsControl.removeClass("small_btn_on_indicators");
                 b.indicatorsControl.addClass("indicators_control");
-                b.model.find('.light_indicators').css({opacity : 0.4})
+                $('td').removeClass('light_indicators__check')
                 b.model.unbind('mouseup');
             });
         });
@@ -323,19 +380,19 @@ function block_2(sSelector){
 					if(b.thumbler_hor_2.offset().top - event.pageY > -0.018*b.clientHeight && b.thumbler_hor_2.offset().left - event.pageX < 0.2*b.clientWidth){
 						b.thumbler_hor_2Value = 4;
 						b.thumbler_hor_2.css('backgroundImage', 'url(\'images/thum_4.png\')');
+						b.checkAll();
 						b.model.unbind('mouseup');}
 					else if(event.pageY - b.thumbler_hor_2.offset().top >= 0.065*b.clientHeight && b.thumbler_hor_2.offset().left - event.pageX < 0.2*b.clientWidth){
 						b.thumbler_hor_2Value = 1;
 						b.thumbler_hor_2.css('backgroundImage', 'url(\'images/thum_1.png\')');
-						b.model.unbind('mouseup');}
-					else if(b.thumbler_hor_2.offset().left - event.pageX >= -0.014*b.clientWidth && event.pageY - b.thumbler_hor_2.offset().top <= b.clientHeight*0.08){b.thumbler_hor_2Value = 2;
-						b.thumbler_hor_2.css('backgroundImage', 'url(\'images/thum_2.png\')');
+						b.checkAll();
 						b.model.unbind('mouseup');}
 					else{}
+						b.checkAll();
 			setTimeout(function(){b.thumbler_hor_2.css('backgroundImage', 'url(\'images/thum_3.png\')');}, 900);
 				}
 		    	});
-			b.checkAll();
+			
 		})
 		b.opticsThumbler.bind('mousedown', function(event){
 			b.model.bind('mouseup',function(event){
@@ -343,20 +400,23 @@ function block_2(sSelector){
 					if(b.opticsThumbler.offset().top - event.pageY > -0.023*b.clientHeight && b.opticsThumbler.offset().left - event.pageX < 0.2*b.clientWidth){
 						b.opticsThumblerValue = 4;
 						b.opticsThumbler.css('backgroundImage', 'url(\'images/thum_4.png\')');
+						b.checkAll();
 						b.model.unbind('mouseup');}
 					else if(event.pageY - b.opticsThumbler.offset().top >= 0.07*b.clientHeight && b.opticsThumbler.offset().left - event.pageX < 0.2*b.clientWidth){
 						b.opticsThumblerValue = 1;
 						b.opticsThumbler.css('backgroundImage', 'url(\'images/thum_1.png\')');
+						b.checkAll();
 						b.model.unbind('mouseup');}
 					else{
 						b.opticsThumblerValue = 3;
 						b.opticsThumbler.css('backgroundImage', 'url(\'images/thum_3.png\')');
+						b.checkAll();
 						b.model.unbind('mouseup');}
 				}
 		    	});
 		b.checkAll();
 	})
-			b.model.find("#th21").bind('mousedown', function(event){
+		b.model.find("#th21").bind('mousedown', function(event){
 			b.model.bind('mouseup',function(event){
 				if(event.which === 1) {
 					if(b.model.find("#th21").offset().top - event.pageY > -0.023*b.clientHeight && b.model.find("#th21").offset().left - event.pageX < 0.2*b.clientWidth){
@@ -395,19 +455,21 @@ function block_2(sSelector){
 						b.thumbler_horValue = 0;
 						b.thumbler_hor.removeClass("thumbler_hor_pos2 thumbler_hor_pos1");
 						b.thumbler_hor.addClass("thumbler_hor_off");}
+						b.checkAll();
 						b.model.unbind('mouseup');
 			}
 		  });
-		b.checkAll();
 	})
  		b.KButton.mousedown(function(){
  			jqKButton=$(this);
  			jqKButton.toggleClass("k-button_clicked");
+ 			b.control = true;
  			b.model.bind("mouseup", function(){
  				setTimeout(function(){
  				jqKButton.toggleClass("k-button_clicked")}, 200)
  				b.model.unbind("mouseup");
  			});
+ 			b.checkAll()
  		});
 
  		b.changeRot1Position = function(event){
@@ -420,6 +482,16 @@ function block_2(sSelector){
 					'-webkit-transform': 'rotate('+b.rot1Angle+'deg)',
 					'-o-transform': 'rotate('+b.rot1Angle + 'deg)',
 					'transform': 'rotate('+b.rot1Angle + 'deg)'});
+				if(appThumbler){
+					if(b.accurateAngle && b.AArrowAccurateAngleY > -40){
+						b.AArrowAccurateAngleY-=0.1;
+					}else{
+						if(b.AArrowAngleY > -40){
+							b.AArrowAngleY-=0.1;
+						}else{}
+					}
+				}
+				b.checkAll();
 			}
 		else if(event.which === 3){
 			b.rot1Angle += 1;
@@ -429,9 +501,30 @@ function block_2(sSelector){
 					'-webkit-transform': 'rotate('+b.rot1Angle+'deg)',
 					'-o-transform': 'rotate('+b.rot1Angle+'deg)',
 					'transform': 'rotate('+b.rot1Angle+'deg)'});
+				if(appThumbler){
+					if(b.accurateAngle && b.AArrowAccurateAngleY < 40){
+						b.AArrowAccurateAngleY+=0.1;
+					}else{
+						if(b.AArrowAngleY < 40){
+							b.AArrowAngleY+=0.1;
+						}else{}
+					}
+				}
+				b.checkAll();
 		 	}
 		else{alert('press left or right button');}}, 6);
-		document.onmouseup = function(){clearInterval(window.spin1)};
+		mouseupUpRot1 = function(){clearInterval(window.spin1);
+		if(!b.accurateAngle){
+				b.AArrowAccurateAngleY = b.AArrowAngleY + Math.random()*(3+3)-3;
+			 	if(b.AArrowAccurateAngleY > 40){
+			 		b.AArrowAccurateAngleY = 40;
+			 	}else if (b.AArrowAccurateAngleY < -40){
+			 		b.AArrowAccurateAngleY = -40;
+			 	}else{}
+			};
+			document.removeEventListener('mouseup', mouseupUpRot1); 
+		}
+		document.addEventListener('mouseup', mouseupUpRot1);
 	};
 	b.changeRot2Position = function(event){
  		spin2 = setInterval(function(){
@@ -443,6 +536,16 @@ function block_2(sSelector){
 					'-webkit-transform': 'rotate('+b.rot2Angle+'deg)',
 					'-o-transform': 'rotate('+b.rot2Angle + 'deg)',
 					'transform': 'rotate('+b.rot2Angle + 'deg)'});
+				if(appThumbler){
+					if(b.accurateAngle && b.AArrowAccurateAngleO > -40){
+						b.AArrowAccurateAngleO-=0.1;
+					}else{
+						if(b.AArrowAngleO > -40){
+						b.AArrowAngleO-=0.1;
+						}else{}
+					}
+				}
+				b.checkAll();
 			}
 		else if(event.which === 3){
 			b.rot2Angle += 1;
@@ -452,9 +555,31 @@ function block_2(sSelector){
 					'-webkit-transform': 'rotate('+b.rot2Angle+'deg)',
 					'-o-transform': 'rotate('+b.rot2Angle+'deg)',
 					'transform': 'rotate('+b.rot2Angle+'deg)'});
+				if(appThumbler){
+					if(b.accurateAngle && b.AArrowAccurateAngleO < 40){
+						b.AArrowAccurateAngleO+=0.1;
+					}else{
+						if(b.AArrowAngleO < 40){
+							b.AArrowAngleO+=0.1;
+						}else{}
+					}
+				}
+				b.checkAll();
 		 	}
 		else{alert('press left or right button');}}, 6);
-		document.onmouseup = function(){clearInterval(window.spin2)};
+		mouseupUpRot2 = function(){clearInterval(window.spin2);
+		if(!b.accurateAngle){
+				b.AArrowAccurateAngleO = b.AArrowAngleO + Math.random()*(3+3)-3;
+			 	if(b.AArrowAccurateAngleO > 40){
+			 		b.AArrowAccurateAngleO = 40;
+			 	}else if (b.AArrowAccurateAngleO < -40){
+			 		b.AArrowAccurateAngleO = -40;
+			 	}else{}
+			};
+			document.removeEventListener('mouseup', mouseupUpRot2); 
+		}
+		document.addEventListener('mouseup', mouseupUpRot2);
+
 	};
 	b.changeRot3Position = function(event){
  		spin3 = setInterval(function(){
@@ -727,7 +852,7 @@ function block_2(sSelector){
 					'transform': 'rotate('+b.hw1Angle + 'deg)'});
 			}}
 		else if(event.which === 3){
-			if (b.scalesAngle[1] < 90) {
+			if (b.scalesAngle[1] < 72) {
 			b.hw1Angle += 1;
 			b.scalesAngle[0] +=1;
 			b.scalesAngle[1] +=0.0166667;
@@ -750,7 +875,7 @@ function block_2(sSelector){
 					'-o-transform': 'rotate('+b.hw1Angle+'deg)',
 					'transform': 'rotate('+b.hw1Angle+'deg)'});
 		 	}}
-		else{alert('press left or right button');}}, 6);
+		else{alert('press left or right button');}; b.checkAll()}, 6);
 		document.onmouseup = function(){clearInterval(window.spin6)};
 	};
 	b.changeHW2Position = function(event){
@@ -803,6 +928,7 @@ function block_2(sSelector){
 					'transform': 'rotate('+b.hw2Angle+'deg)'});
 		 	}}
 		else{alert('press left or right button');}
+		b.checkAll();
 }, 6);
 		document.onmouseup = function(){clearInterval(window.spin7)};
 	};
@@ -838,22 +964,27 @@ function block_2(sSelector){
 	b.rotateSwitch_5 = function(event){changeSwitchPosition(switch_5, b.checkAll, event)};
 
 	b.specialThumbler.bind('mousedown', function(event){
-			b.model.bind('mouseup',function(event){
+			b.model.bind('mouseup', function(event){
 				if(event.which === 1) {
 					if(b.specialThumbler.offset().top - event.pageY > -0.023*b.clientHeight && b.specialThumbler.offset().left - event.pageX < 0.2*b.clientWidth){
 						b.specialThumblerValue = 4;
 						b.specialThumbler.css('backgroundImage', 'url(\'images/thum_4.png\')');
+						b.checkAll();
 						b.model.unbind('mouseup');}
 					else if(event.pageY - b.specialThumbler.offset().top >= 0.07*b.clientHeight && b.specialThumbler.offset().left - event.pageX < 0.2*b.clientWidth){
 						b.specialThumblerValue = 1;
 						b.specialThumbler.css('backgroundImage', 'url(\'images/thum_1.png\')');
+						b.checkAll();
 						b.model.unbind('mouseup');}
 					else if(b.specialThumbler.offset().left - event.pageX >= -0.01*b.clientWidth && event.pageY - b.specialThumbler.offset().top <= b.clientHeight*0.08){b.specialThumblerValue = 2;
+						b.specialThumblerValue = 2;
 						b.specialThumbler.css('backgroundImage', 'url(\'images/thum_2.png\')');
+						b.checkAll();
 						b.model.unbind('mouseup');}
 					else{
 						b.specialThumblerValue = 3;
 						b.specialThumbler.css('backgroundImage', 'url(\'images/thum_3.png\')');
+						b.checkAll();
 						b.model.unbind('mouseup');}
 				}
 		    	});
@@ -864,34 +995,278 @@ function block_2(sSelector){
 	b.switch3.mousedown(b.rotateSwitch_3);
 	b.switch4.mousedown(b.rotateSwitch_4);
 	b.switch5.mousedown(b.rotateSwitch_5);
-	var lightKSV = null;
-	b.checkAll=function(){
-		if (appThumbler && b.thumbler_horValue === 1) {
+	var lightKSV = null, 
+	light = null;
 
-		}else if(appThumbler && b.thumbler_horValue === 2){
-
-		}else{
-
-		}
-
-		if (appThumbler) {
-			if(lightKSV === null){
-				lightKSV = setTimeout(function(){b.model.find(".light-indicators__KSV").css({'opacity': '1'});}, 6000)
+	b.lightIndcatorsInOrder = function(arrIndicatorsOrder){
+ 		i = 0;
+		light = setInterval(function(){
+		$(arrIndicatorsOrder[i]).addClass('light_indicators__active');
+			i++;
+			if (!arrIndicatorsOrder[i]) {
+				clearInterval(light);
 			}
+		}, 1000)
+	}
+	/*
+	b.model.keydown(function(e){
+		console.log(e.which);
+	})
+	*/
+	b.controlProcess = function(){
+						b.model.find('.indicator_3').removeClass('light_indicators__active');
+						b.model.find('.indicator_4').removeClass('light_indicators__active');
+						$(b.model.find('.light_indicators__control')[0]).addClass('light_indicators__active');
+						setTimeout(function(){$(b.model.find('.light_indicators__az')).addClass('light_indicators__active')}, 1000);
+						setTimeout(function(){$(b.model.find('.light_indicators__az')).removeClass('light_indicators__active')}, 2000);
+						setTimeout(function(){$(b.model.find('.light_indicators__um')).addClass('light_indicators__active')}, 3000);
+						setTimeout(function(){$(b.model.find('.light_indicators__um')).removeClass('light_indicators__active')}, 4000);
+						setTimeout(function(){$(b.model.find('.light_indicators__on-the-way-1')).addClass('light_indicators__active')}, 5000);
+						setTimeout(function(){$(b.model.find('.light_indicators__on-the-way-1')).removeClass('light_indicators__active')}, 6000);
+						setTimeout(function(){$(b.model.find('.light_indicators__control-1')).addClass('light_indicators__active')}, 7000);
+						setTimeout(function(){$(b.model.find('.light_indicators__control-1')).removeClass('light_indicators__active')}, 8000);
+						setTimeout(function(){$(b.model.find('.light_indicators__control-2')).addClass('light_indicators__active')}, 9000);
+						setTimeout(function(){$(b.model.find('.light_indicators__control-2')).removeClass('light_indicators__active')}, 10000);
+						setTimeout(function(){$(b.model.find('.light_indicators__control-3')).addClass('light_indicators__active')}, 11000);
+						setTimeout(function(){$(b.model.find('.light_indicators__control-3')).removeClass('light_indicators__active')}, 12000);
+						setTimeout(function(){$(b.model.find('.light_indicators__control-4')).addClass('light_indicators__active')}, 13000);
+						setTimeout(function(){$(b.model.find('.light_indicators__control-4')).removeClass('light_indicators__active')}, 14000)
+						setTimeout(function(){$(b.model.find('.light_indicators__control-5')).addClass('light_indicators__active')}, 15000);
+						setTimeout(function(){$(b.model.find('.light_indicators__control-5')).removeClass('light_indicators__active')}, 16000);
+						setTimeout(function(){$(b.model.find('.light_indicators__control-6')).addClass('light_indicators__active')}, 17000);
+						setTimeout(function(){$(b.model.find('.light_indicators__control-6')).removeClass('light_indicators__active')}, 18000)
+						setTimeout(function(){$(b.model.find('.light_indicators__control-7')).addClass('light_indicators__active')}, 19000);
+						setTimeout(function(){$(b.model.find('.light_indicators__control-8')).addClass('light_indicators__active')}, 20000);
+						setTimeout(function(){$(b.model.find('.light_indicators__control-8')).removeClass('light_indicators__active')}, 21000)
+						setTimeout(function(){$(b.model.find('.light_indicators__control-9')).addClass('light_indicators__active')}, 22000);
+						setTimeout(function(){$(b.model.find('.light_indicators__control-9')).removeClass('light_indicators__active')}, 23000);
+						setTimeout(function(){$(b.model.find('.light_indicators__control-10')).addClass('light_indicators__active')}, 24000);
+						setTimeout(function(){$(b.model.find('.light_indicators__control-10')).removeClass('light_indicators__active')}, 25000)
+						setTimeout(function(){$(b.model.find('.light_indicators__control-11')).addClass('light_indicators__active')}, 26000);
+						setTimeout(function(){$(b.model.find('.light_indicators__control-11')).removeClass('light_indicators__active')}, 27000);
+						setTimeout(function(){$(b.model.find('.light_indicators__control-12')).addClass('light_indicators__active')}, 28000);
+						setTimeout(function(){$(b.model.find('.light_indicators__control-12')).removeClass('light_indicators__active')}, 29000)
+						setTimeout(function(){$(b.model.find('.light_indicators__control-13')).addClass('light_indicators__active')}, 30000);
+						setTimeout(function(){$(b.model.find('.light_indicators__control-13')).removeClass('light_indicators__active')}, 31000);
+						setTimeout(function(){$(b.model.find('.light_indicators__control-14')).addClass('light_indicators__active')}, 32000);
+						setTimeout(function(){$(b.model.find('.light_indicators__control-14')).removeClass('light_indicators__active')}, 33000)
+						setTimeout(function(){$(b.model.find('.light_indicators__control-15')).addClass('light_indicators__active')}, 34000);
+						setTimeout(function(){$(b.model.find('.light_indicators__control-15')).removeClass('light_indicators__active')}, 35000);
+						setTimeout(function(){$(b.model.find('.light_indicators__control')[0]).removeClass('light_indicators__active');}, 36000);
+						b.control = false;
+	}
+	b.args = [];
+	b.checkAll=function(){
+		console.log('bfdg')
+		/*
+		if (appThumbler && b.thumbler_horValue === 1) {
+		}else if(appThumbler && b.thumbler_horValue === 2){
 		}else{
-			b.model.find(".light-indicators__KSV").css({'opacity': '0.4'});
+		}
+		*/
+		/*
+		b.args = b.model.find('.light_indicators__rocket-present');
+		b.args.push(b.model.find('.light_indicators__on-the-way')[0]);
+		b.args.push(b.model.find('.light_indicators__on-the-way')[1]);
+		b.args = b.args.toArray().concat(b.model.find('.light_indicators__ready').toArray().reverse());
+		*/
+		if (appThumbler && $('#th1').hasClass('thumbler__on') && $('#th2').hasClass('thumbler__on')) {
+			if(lightKSV === null){
+				lightKSV = setTimeout(function(){b.model.find(".light-indicators__KSV").addClass('light_indicators__active');
+				if($('#th10').hasClass('thumbler__on') && $('#th11').hasClass('thumbler__on')){
+					b.model.find('.light_indicators__ready__2B').addClass('light_indicators__active');
+					b.model.find('.light_indicators__control-4').addClass('light_indicators__active');
+				}
+			//	b.lightIndcatorsInOrder(b.args);
+			}, 6000);
+			}
+
+			if($('#th10').hasClass('thumbler__on') && $('#th11').hasClass('thumbler__on') && appThumbler && $('#th1').hasClass('thumbler__on') && $('#th2').hasClass('thumbler__on')){
+					b.model.find('.light_indicators__ready__2B').addClass('light_indicators__active');
+					b.model.find('.light_indicators__control-4').addClass('light_indicators__active');
+				}else{
+					b.model.find('.light_indicators__control-4').removeClass('light_indicators__active');
+					b.model.find('.light_indicators__ready__2B').removeClass('light_indicators__active');
+				}
+
+			if ($('#th8').hasClass('thumbler__on') && $('#th9').hasClass('thumbler__on')) {
+				b.model.find('.light_indicators__rocket-present').addClass('light_indicators__active');
+			} else {b.model.find('.light_indicators__rocket-present').removeClass('light_indicators__active');}
+
+			b.model.find('.light_indicators__on-the-way').addClass('light_indicators__active');
+
+			b.model.find('.epsilon_indicator').addClass('light_indicators__active');
+
+			if(b.specialThumblerValue === 4 && $('#th1').hasClass('thumbler__on') && $('#th2').hasClass('thumbler__on') && $('#th12').hasClass('thumbler__on') && $('#th13').hasClass('thumbler__on')){
+				lightAM = setTimeout(function(){b.model.find('.AM-1-indicator').addClass('light_indicators__active')}, 6000);
+			}else{b.model.find('.AM-1-indicator').removeClass('light_indicators__active')}
+
+
+			if($('#th10').hasClass('thumbler__on') && $('#th11').hasClass('thumbler__on') && b.control && b.thumblersValue[1] && b.thumblersValue[2] && b.thumblersValue[3] && b.thumblersValue[4] && $(document).find('#th1').hasClass('thumbler__on') && $(document).find('#th2').hasClass('thumbler__on')){
+				b.controlProcess();
+			}
+
+			if(b.thumbler_hor_2Value === 4 && $(document).find('#th1').hasClass('thumbler__on') && $(document).find('#th2').hasClass('thumbler__on') && $(document).find('#th5').hasClass('thumbler__on') && $(document).find('#th6').hasClass('thumbler__on') && $(document).find('#th7').hasClass('thumbler__on')){
+				b.model.find('.indicator_4').removeClass('light_indicators__active');
+				b.model.find('#sp_arr_2').css({'-moz-transform': 'rotate('+(b.scalesAngle[15]-90)+'deg)',
+						'-ms-transform' : 'rotate('+(b.scalesAngle[15]-90)+'deg)',
+						'-webkit-transform': 'rotate('+(b.scalesAngle[15]-90)+'deg)',
+						'-o-transform': 'rotate('+(b.scalesAngle[15]-90)+'deg)',
+						'transform': 'rotate('+(b.scalesAngle[15]-90)+'deg)'});
+				b.model.find('#sp_arr_1').css({'-moz-transform': 'rotate('+(b.scalesAngle[1]*5-90)+'deg)',
+						'-ms-transform' : 'rotate('+(b.scalesAngle[1]*5-90)+'deg)',
+						'-webkit-transform': 'rotate('+(b.scalesAngle[1]*5-90)+'deg)',
+						'-o-transform': 'rotate('+(b.scalesAngle[1]*5-90)+'deg)',
+						'transform': 'rotate('+(b.scalesAngle[1]*5-90)+'deg)'});
+				b.model.find('.indicator_3').addClass('light_indicators__active');
+				b.model.find('.light_indicators__on-the-way').removeClass('light_indicators__active');
+			}else if (b.thumbler_hor_2Value === 1 && $('#th1').hasClass('thumbler__on') && $('#th2').hasClass('thumbler__on') && $('#th5').hasClass('thumbler__on') && $('#th6').hasClass('thumbler__on') && $('#th7').hasClass('thumbler__on')) {
+				b.model.find('.indicator_3').removeClass('light_indicators__active');
+				b.model.find('#sp_arr_2').css({'-moz-transform': 'rotate('+ 90 +'deg)',
+						'-ms-transform' : 'rotate('+ 90 +'deg)',
+						'-webkit-transform': 'rotate('+ 90 +'deg)',
+						'-o-transform': 'rotate('+ 90 +'deg)',
+						'transform': 'rotate('+ 90 +'deg)'});
+				b.model.find('#sp_arr_1').css({'-moz-transform': 'rotate('+(-90)+'deg)',
+						'-ms-transform' : 'rotate('+(-90)+'deg)',
+						'-webkit-transform': 'rotate('+(-90)+'deg)',
+						'-o-transform': 'rotate('+(-90)+'deg)',
+						'transform': 'rotate('+(-90)+'deg)'});
+				b.model.find('.indicator_4').addClass('light_indicators__active');
+				b.model.find('.light_indicators__on-the-way').addClass('light_indicators__active');
+			}else{}
+
+			document.onkeydown = function(e){
+				if (appThumbler) {
+					if (e.which === 67 && !b.control && $('#th10').hasClass('thumbler__on') && $('#th11').hasClass('thumbler__on')){
+						b.controlProcess();
+					}
+				}
+			}
+
+			if (b1.thumblersValue[3] && $('#th1').hasClass('thumbler__on') && $('#th2').hasClass('thumbler__on') && $('#th1').hasClass('thumbler__on') && $('#th2').hasClass('thumbler__on')) {
+				if(b.thumbler_horValue === 1 && b.accurateAngle){
+					b.AArrow.css({
+						'-moz-transform': 'rotate('+b.AArrowAccurateAngleY+'deg)',
+						'-ms-transform' : 'rotate('+b.AArrowAccurateAngleY+'deg)',
+						'-webkit-transform': 'rotate('+b.AArrowAccurateAngleY+'deg)',
+						'-o-transform': 'rotate('+b.AArrowAccurateAngleY+'deg)',
+						'transform': 'rotate('+b.AArrowAccurateAngleY+'deg)'});
+				}else if(b.thumbler_horValue === 1){
+					b.AArrow.css({
+						'-moz-transform': 'rotate('+b.AArrowAngleY+'deg)',
+						'-ms-transform' : 'rotate('+b.AArrowAngleY+'deg)',
+						'-webkit-transform': 'rotate('+b.AArrowAngleY+'deg)',
+						'-o-transform': 'rotate('+b.AArrowAngleY+'deg)',
+						'transform': 'rotate('+b.AArrowAngleY+'deg)'});
+				}else if(b.thumbler_horValue === 2 && b.accurateAngle){
+					b.AArrow.css({
+						'-moz-transform': 'rotate('+b.AArrowAccurateAngleO+'deg)',
+						'-ms-transform' : 'rotate('+b.AArrowAccurateAngleO+'deg)',
+						'-webkit-transform': 'rotate('+b.AArrowAccurateAngleO+'deg)',
+						'-o-transform': 'rotate('+b.AArrowAccurateAngleO+'deg)',
+						'transform': 'rotate('+b.AArrowAccurateAngleO+'deg)'});	
+				}else if(b.thumbler_horValue === 2){
+					b.AArrow.css({
+						'-moz-transform': 'rotate('+b.AArrowAngleO+'deg)',
+						'-ms-transform' : 'rotate('+b.AArrowAngleO+'deg)',
+						'-webkit-transform': 'rotate('+b.AArrowAngleO+'deg)',
+						'-o-transform': 'rotate('+b.AArrowAngleO+'deg)',
+						'transform': 'rotate('+b.AArrowAngleO+'deg)'});
+				}else{
+					b.AArrow.css({
+						'-moz-transform': 'rotate('+ 0 +'deg)',
+						'-ms-transform' : 'rotate('+ 0 +'deg)',
+						'-webkit-transform': 'rotate('+ 0 +'deg)',
+						'-o-transform': 'rotate('+ 0 +'deg)',
+						'transform': 'rotate('+ 0 +'deg)'});	
+				}}else{
+					b.AArrow.css({
+						'-moz-transform': 'rotate('+ 0 +'deg)',
+						'-ms-transform' : 'rotate('+ 0 +'deg)',
+						'-webkit-transform': 'rotate('+ 0 +'deg)',
+						'-o-transform': 'rotate('+ 0 +'deg)',
+						'transform': 'rotate('+ 0 +'deg)'});	
+				}
+		}else{
+			b.model.find(".light-indicators__KSV").removeClass('light_indicators__active');
 			clearTimeout(lightKSV);
+			clearInterval(light);
+			b.model.find('.light_indicators').removeClass('light_indicators__check');
 			lightKSV = null;
+			$('td').removeClass('light_indicators__active');
 		};
 
-		if(appThumbler && switch_4.switchCurrentValue!==0){
+		if(appThumbler && $(document).find('#th4').hasClass('thumbler__on') && $(document).find('#th1').hasClass('thumbler__on') && $(document).find('#th2').hasClass('thumbler__on')){
+			b.model.find('.A').css({'opacity': 1});
+		}else{
+			b.model.find('.A').css({'opacity': 0.4});
+		}
+
+		if (appThumbler && $(document).find('#th5').hasClass('thumbler__on') && $(document).find('#th6').hasClass('thumbler__on') && $(document).find('#th7').hasClass('thumbler__on') &&$(document).find('#th1').hasClass('thumbler__on') && $(document).find('#th2').hasClass('thumbler__on')) {
+			$('.scale_1').css({'filter':'brightness(1)'});
+			$('.scale_2').css({'filter':'brightness(1)'});
+			$('.scale_15').css({'filter':'brightness(1)'});
+			$('.scale_16').css({'filter':'brightness(1)'});
+			$('.grey-filter-over-arrow').css({'background-color' : 'rgba(0,0,0,0)'});
+		} else {
+			$('.scale_1').css({'filter':'brightness(0.4)'});
+			$('.scale_2').css({'filter':'brightness(0.4)'});
+			$('.scale_15').css({'filter':'brightness(0.4)'});
+			$('.scale_16').css({'filter':'brightness(0.4)'});
+			$('.grey-filter-over-arrow').css({'background-color' : 'rgba(0,0,0,0.4)'});
+		}
+
+		if(appThumbler && b.opticsThumblerValue === 4 && $(document).find('#th1').hasClass('thumbler__on') && $(document).find('#th2').hasClass('thumbler__on')){
+			$('.scale_3').css({'filter':'brightness(1)'});
+			$('.scale_4').css({'filter':'brightness(1)'});
+			$('.scale_5').css({'filter':'brightness(1)'});
+			$('.scale_6').css({'filter':'brightness(1)'});
+			$('.scale_7').css({'filter':'brightness(1)'});
+			$('.scale_8').css({'filter':'brightness(1)'});
+			$('.scale_9').css({'filter':'brightness(0.4)'});
+			$('.scale_10').css({'filter':'brightness(0.4)'});
+			$('.scale_11').css({'filter':'brightness(0.4)'});
+			$('.scale_12').css({'filter':'brightness(0.4)'});
+			$('.scale_13').css({'filter':'brightness(0.4)'});
+			$('.scale_14').css({'filter':'brightness(0.4)'});
+		}else if(appThumbler && b.opticsThumblerValue === 1 && $(document).find('#th1').hasClass('thumbler__on') && $(document).find('#th2').hasClass('thumbler__on')){
+			$('.scale_9').css({'filter':'brightness(1)'});
+			$('.scale_10').css({'filter':'brightness(1)'});
+			$('.scale_11').css({'filter':'brightness(1)'});
+			$('.scale_12').css({'filter':'brightness(1)'});
+			$('.scale_13').css({'filter':'brightness(1)'});
+			$('.scale_14').css({'filter':'brightness(1)'});
+			$('.scale_3').css({'filter':'brightness(0.4)'});
+			$('.scale_4').css({'filter':'brightness(0.4)'});
+			$('.scale_5').css({'filter':'brightness(0.4)'});
+			$('.scale_6').css({'filter':'brightness(0.4)'});
+			$('.scale_7').css({'filter':'brightness(0.4)'});
+			$('.scale_8').css({'filter':'brightness(0.4)'});
+		}else{
+			$('.scale_3').css({'filter':'brightness(0.4)'});
+			$('.scale_4').css({'filter':'brightness(0.4)'});
+			$('.scale_5').css({'filter':'brightness(0.4)'});
+			$('.scale_6').css({'filter':'brightness(0.4)'});
+			$('.scale_7').css({'filter':'brightness(0.4)'});
+			$('.scale_8').css({'filter':'brightness(0.4)'});
+			$('.scale_9').css({'filter':'brightness(0.4)'});
+			$('.scale_10').css({'filter':'brightness(0.4)'});
+			$('.scale_11').css({'filter':'brightness(0.4)'});
+			$('.scale_12').css({'filter':'brightness(0.4)'});
+			$('.scale_13').css({'filter':'brightness(0.4)'});
+			$('.scale_14').css({'filter':'brightness(0.4)'});
+		}
+
+		if(appThumbler && switch_4.switchCurrentValue!==0 && $(document).find('#th1').hasClass('thumbler__on') && $(document).find('#th2').hasClass('thumbler__on')){
 			b.model.find(".roll").html(switch_4.switchCurrentValue).css({'opacity': '1', 'font-size':'2em', 'color': 'red'});
 		}else{b.model.find(".roll").html("").css({opacity: 0.4})}
-		if(appThumbler && switch_5.switchCurrentValue!==0){
+		if(appThumbler && switch_5.switchCurrentValue!==0 && $(document).find('#th1').hasClass('thumbler__on') && $(document).find('#th2').hasClass('thumbler__on')){
 			b.model.find(".lither").html(switch_5.switchCurrentValue).css({'opacity': '1', 'font-size':'2em', 'color': 'red'});
 		}else{b.model.find(".lither").html("").css({opacity: 0.4})}
 	}
 }
+
 /*
  		b.thumbler_hor_2.click(function(){
  			b.thumbler_hor_2.addClass("thumbler_hor_2_off");
