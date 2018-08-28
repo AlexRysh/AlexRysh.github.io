@@ -1057,7 +1057,6 @@ function block_2(sSelector){
 	}
 	b.args = [];
 	b.checkAll=function(){
-		console.log('bfdg')
 		/*
 		if (appThumbler && b.thumbler_horValue === 1) {
 		}else if(appThumbler && b.thumbler_horValue === 2){
